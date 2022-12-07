@@ -26,6 +26,7 @@ class Cart:
         return (list(self.cart))
 
     def is_empty(self):
+        # return False if (lambda x:(str(i).isdigit() for i in self.cart)) else True
         count = 0
         for item in self.cart:
             if str(item).isdigit():
@@ -33,10 +34,7 @@ class Cart:
                 return False
 
     def is_num_to_cart(self, num):
-        if num in list(self.cart):
-            return True
-        else:
-            return False
+        return True if num in list(self.cart) else False
 
     def cross_out(self, num):
         for item in self.cart:
@@ -82,7 +80,7 @@ class Npc:
             self.cart.cross_out(num)
             print('Номер есть')
         else:
-            print('Номера нет в карточке')
+            print('Номера нет')
         return True
 
 
@@ -112,7 +110,6 @@ class Game:
             self.player = Npc()
             self.npc = Npc()
         else:
-            print('Выбран выход')
             return True
         return False
 
@@ -144,7 +141,6 @@ class Game:
         else:
             print('Игра закончена!')
             return
-        # print()
         print("🟢" * 11)
         print(f'Победитель: {self.winner}')
         print("🟢" * 11)
